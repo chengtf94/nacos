@@ -192,7 +192,6 @@ public class CacheData {
         } else {
             wrap = new ManagerListenerWrap(listener, md5);
         }
-        
         if (listeners.addIfAbsent(wrap)) {
             LOGGER.info("[{}] [add-listener] ok, tenant={}, dataId={}, group={}, cnt={}", name, tenant, dataId, group,
                     listeners.size());
@@ -278,7 +277,7 @@ public class CacheData {
     public String toString() {
         return "CacheData [" + dataId + ", " + group + "]";
     }
-    
+
     void checkListenerMd5() {
         for (ManagerListenerWrap wrap : listeners) {
             if (!md5.equals(wrap.lastCallMd5)) {
